@@ -1,0 +1,9 @@
+options:
+  verbose: true
+syncs:
+  m2-unison-sync:
+    src: './src'
+    dest: '/magento'
+    sync_strategy: 'unison'
+    sync_excludes: ['.git', 'var/.regenerate', 'var/cache', 'var/page_cache', 'var/di', 'var/generation', 'var/session']
+    sync_excludes_type: 'Name'

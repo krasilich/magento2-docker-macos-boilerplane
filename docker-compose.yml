@@ -1,0 +1,38 @@
+version: '2'
+services:
+  web:
+    image: krasilich/magento2:2.0-dev
+    ports:
+      - 8089:80
+    container_name: m2
+    environment:
+      COMPOSER_AUTH_PUBLIC: ""
+      COMPOSER_AUTH_PRIVATE: ""
+      COMPOSER_UPDATE: "False"
+      MAGENTO_DB_HOST: "db"
+      MAGENTO_DB_NAME: "magento2"
+      MAGENTO_DB_USER: "magento2"
+      MAGENTO_DB_PASS: "123123"
+      MAGENTO_ADMIN_USER: "admin"
+      MAGENTO_ADMIN_PASS: "123123qa"
+      MAGENTO_ADMIN_EMAIL: "admin@example.com"
+      MAGENTO_ADMIN_FIRSTNAME: "Admin"
+      MAGENTO_ADMIN_LASTNAME: "Admin"
+      MAGENTO_ADMIN_FRONTNAME: "admin"  
+    volumes:
+        - m2-unison-sync:/magento:rw
+  db:
+    image: mysql:5.7
+    container_name: m2_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "123123"
+      MYSQL_DATABASE: "magento2"
+      MYSQL_USER: "magento2"
+      MYSQL_PASSWORD: "123123"
+  cache:
+    image: redis:3.0
+    container_name: m2_cache
+
+volumes:
+  m2-unison-sync:
+    external: true
