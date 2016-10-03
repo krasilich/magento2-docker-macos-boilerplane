@@ -19,8 +19,7 @@ services:
       MAGENTO_ADMIN_FIRSTNAME: "Admin"
       MAGENTO_ADMIN_LASTNAME: "Admin"
       MAGENTO_ADMIN_FRONTNAME: "admin"  
-    volumes:
-        - m2-unison-sync:/magento:rw
+
   db:
     image: mysql:5.7
     container_name: m2_db
@@ -32,7 +31,3 @@ services:
   cache:
     image: redis:3.0
     container_name: m2_cache
-
-volumes:
-  m2-unison-sync:
-    external: true
