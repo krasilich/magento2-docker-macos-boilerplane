@@ -6,5 +6,7 @@ syncs:
     src: './src'
     dest: '/var/www/magento'
     sync_strategy: 'unison'
-    sync_excludes: ['.git', 'var/.regenerate', 'var/cache', 'var/page_cache', 'var/di', 'var/generation', 'var/session']
+    sync_excludes: ['.git', 'var/cache', 'var/page_cache', 'var/session']
     sync_excludes_type: 'Name'
+    sync_user: 'www-data'
+    sync_group: 'www-data'
