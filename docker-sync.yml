@@ -8,5 +8,3 @@ syncs:
     sync_strategy: 'unison'
     sync_excludes: ['.git', 'var/cache', 'var/page_cache', 'var/session']
     sync_excludes_type: 'Name'
-    sync_user: 'www-data'
-    sync_group: 'www-data'

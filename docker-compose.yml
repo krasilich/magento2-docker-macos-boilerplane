@@ -1,9 +1,9 @@
 version: '2'
 services:
   web:
-    image: krasilich/magento2:2.0-dev
+    image: krasilich/magento2:2.1-dev
     ports:
-      - 8089:80
+      - 8090:80
     container_name: m2
     environment:
       COMPOSER_AUTH_PUBLIC: ""
@@ -18,7 +18,7 @@ services:
       MAGENTO_ADMIN_EMAIL: "admin@example.com"
       MAGENTO_ADMIN_FIRSTNAME: "Admin"
       MAGENTO_ADMIN_LASTNAME: "Admin"
-      MAGENTO_ADMIN_FRONTNAME: "admin"  
+      MAGENTO_ADMIN_FRONTNAME: "admin"
 
   db:
     image: mysql:5.7
@@ -30,6 +30,8 @@ services:
       MYSQL_DATABASE: "magento2"
       MYSQL_USER: "magento2"
       MYSQL_PASSWORD: "123123"
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
   cache:
     image: redis:3.0
     container_name: m2_cache
