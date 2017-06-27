@@ -1,9 +1,9 @@
-version: '2'
+version: "2"
 services:
   web:
     volumes:
-        - m2-unison-sync:/var/www/magento:rw
+        - m2-sync:/var/www/magento:rw
 
 volumes:
-  m2-unison-sync:
+  m2-sync:
     external: true

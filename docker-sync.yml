@@ -1,10 +1,10 @@
+version: "2"
 options:
   verbose: true
   compose-dev-file-path: 'docker-compose-osx.yml'
 syncs:
-  m2-unison-sync:
+  m2-sync:
     src: './src'
-    dest: '/var/www/magento'
-    sync_strategy: 'unison'
     sync_excludes: ['.git', 'var/cache', 'var/page_cache', 'var/session']
     sync_excludes_type: 'Name'
+    sync_userid: '1000'
